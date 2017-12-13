@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import com.app.mohamedgomaa.in_app_billing.util.IabHelper;
 import com.app.mohamedgomaa.in_app_billing.util.IabResult;
 import com.app.mohamedgomaa.in_app_billing.util.Inventory;
 import com.app.mohamedgomaa.in_app_billing.util.Purchase;
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         buyButton = (Button) findViewById(R.id.buyButton);
         clickButton = (Button) findViewById(R.id.btnClickME);
